@@ -1,0 +1,65 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &[placeholder] {
+    text-overflow: ellipsis;
+  }
+
+  &::-moz-placeholder {
+    text-overflow: ellipsis;
+  }
+
+  &:-moz-placeholder {
+    text-overflow: ellipsis;
+  }
+
+  &:-ms-input-placeholder {
+    text-overflow: ellipsis;
+  }
+
+  &::-webkit-input-placeholder {
+    transition: opacity .3s ease;
+  }
+
+  &::-moz-placeholder {
+    transition: opacity .3s ease;
+  }
+
+  &:-moz-placeholder {
+    transition: opacity .3s ease;
+  }
+
+  &:-ms-input-placeholder {
+    transition: opacity .3s ease;
+  }
+
+  &:focus::-webkit-input-placeholder {
+    transition: opacity .3s ease;
+  }
+
+  &:focus::-moz-placeholder {
+    transition: opacity .3s ease;
+  }
+
+  &:focus:-moz-placeholder {
+    transition: opacity .3s ease;
+  }
+
+  &:focus:-ms-input-placeholder {
+    transition: opacity .3s ease;
+  }
+}

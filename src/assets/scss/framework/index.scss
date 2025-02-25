@@ -1,0 +1,16 @@
+@import '../general/scss-variables';
+@import './UI/input';
+
+body {
+  min-width: $extratiny;
+}
+
+.im-app.v-application p {
+  margin-bottom: 0;
+}
+
+.im-app.v-application ul,
+.im-app.v-application ol {
+  padding-left: 0;
+  list-style: none;
+}

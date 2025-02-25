@@ -1,0 +1,30 @@
+.im-input {
+  &__cont {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    padding: 3px 12px 10px;
+    border-radius: 4px;
+    transition: border .2s linear;
+
+    legend {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.6);
+      padding: 0 2px;
+    }
+  }
+
+  .v-messages {
+    padding-left: 8px;
+  }
+
+  .v-input__prepend-outer {
+    margin-top: 30px;
+  }
+
+  &.error--text {
+    .im-input__cont {
+      border: 2px solid currentColor;
+    }
+  }
+}
