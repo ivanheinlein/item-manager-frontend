@@ -1,4 +1,5 @@
-# item-manager
+# Item Manager
+This project was developed by Ivan Shaparenko
 
 ## Project setup
 ```
