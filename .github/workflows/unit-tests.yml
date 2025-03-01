@@ -16,26 +16,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-
-      - name: Set npm registry to npmjs.org
-        run: npm config set registry https://registry.npmjs.org/
-
-      - name: Check npm registry and version
-        run: |
-          npm config get registry
-          npm --version
-
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run tests
-        run: npm run test
+        run: npm run test:unit
