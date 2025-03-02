@@ -1,5 +1,5 @@
 export const capitalize = (str = '') => {
   if (!str || str.length === 0) return '';
-  str = str.trim();
-  return `${str[0].toUpperCase()}${str.slice(1)}`;
+  const strTrimed = str.trim();
+  return `${strTrimed[0].toUpperCase()}${strTrimed.slice(1)}`;
 };

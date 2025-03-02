@@ -117,9 +117,9 @@ describe('parseQuery', () => {
   it('should handle multiple keys and transform each value correctly', () => {
     const query = { key1: 'apple,banana,', key2: 'orange,' };
     const result = parseQuery(query);
-    expect(result).toEqual({ 
-      key1: ['apple', 'banana'], 
-      key2: ['orange'] 
+    expect(result).toEqual({
+      key1: ['apple', 'banana'],
+      key2: ['orange'],
     });
   });
 
