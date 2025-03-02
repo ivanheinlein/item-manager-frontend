@@ -1,4 +1,4 @@
-import { getQueryWithoutDefaults } from '@/assets/js/lib/query';
+import { getQueryWithoutDefaults, parseQuery } from '@/assets/js/lib/query';
 
 describe('getQueryWithoutDefaults', () => {
   it('should return an empty object if no values are different from defaults', () => {
@@ -92,5 +92,52 @@ describe('getQueryWithoutDefaults', () => {
     const defQuery = {};
     const result = getQueryWithoutDefaults(query, defQuery);
     expect(result).toEqual(query);
+  });
+});
+
+describe('parseQuery', () => {
+  it('should return an empty object when the query is empty', () => {
+    const query = {};
+    const result = parseQuery(query);
+    expect(result).toEqual({});
+  });
+
+  it('should return the same value if the string does not end with ARRAY_SEPAR', () => {
+    const query = { key1: 'value1', key2: 'value2' };
+    const result = parseQuery(query);
+    expect(result).toEqual({ key1: 'value1', key2: 'value2' });
+  });
+
+  it('should split the string by ARRAY_SEPAR and remove the last separator', () => {
+    const query = { key1: 'apple,banana,' };
+    const result = parseQuery(query);
+    expect(result).toEqual({ key1: ['apple', 'banana'] });
+  });
+
+  it('should handle multiple keys and transform each value correctly', () => {
+    const query = { key1: 'apple,banana,', key2: 'orange,' };
+    const result = parseQuery(query);
+    expect(result).toEqual({ 
+      key1: ['apple', 'banana'], 
+      key2: ['orange'] 
+    });
+  });
+
+  it('should return the same value for strings without ARRAY_SEPAR at the end', () => {
+    const query = { key1: 'apple', key2: 'orange' };
+    const result = parseQuery(query);
+    expect(result).toEqual({ key1: 'apple', key2: 'orange' });
+  });
+
+  it('should handle an empty string value correctly', () => {
+    const query = { key1: '', key2: 'apple,' };
+    const result = parseQuery(query);
+    expect(result).toEqual({ key1: '', key2: ['apple'] });
+  });
+
+  it('should handle a query with only one key and one value', () => {
+    const query = { key1: 'a,b,c,' };
+    const result = parseQuery(query);
+    expect(result).toEqual({ key1: ['a', 'b', 'c'] });
   });
 });
