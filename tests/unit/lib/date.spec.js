@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { formatDate, DATE_FORMAT } from '../../../src/assets/js/lib/date';
+import { formatDate, DATE_FORMAT } from '@/assets/js/lib/date';
 
 describe('formatDate', () => {
   it('should format a valid date correctly', () => {
