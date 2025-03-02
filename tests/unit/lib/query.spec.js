@@ -1,4 +1,4 @@
-import { getQueryWithoutDefaults, parseQuery } from '@/assets/js/lib/query';
+import { getQueryWithoutDefaults, parseQuery, stringifyQuery } from '@/assets/js/lib/query';
 
 describe('getQueryWithoutDefaults', () => {
   it('should return an empty object if no values are different from defaults', () => {
@@ -139,5 +139,55 @@ describe('parseQuery', () => {
     const query = { key1: 'a,b,c,' };
     const result = parseQuery(query);
     expect(result).toEqual({ key1: ['a', 'b', 'c'] });
+  });
+});
+
+describe('stringifyQuery', () => {
+  it('should return an empty object when the query is empty', () => {
+    const query = {};
+    const result = stringifyQuery(query);
+    expect(result).toEqual({});
+  });
+
+  it('should return the same value if the value is not an array', () => {
+    const query = { key1: 'value1', key2: 'value2' };
+    const result = stringifyQuery(query);
+    expect(result).toEqual({ key1: 'value1', key2: 'value2' });
+  });
+
+  it('should convert array values into a string with ARRAY_SEPAR as the separator', () => {
+    const query = { key1: ['apple', 'banana'], key2: ['orange', 'grape'] };
+    const result = stringifyQuery(query);
+    expect(result).toEqual({
+      key1: 'apple,banana,',
+      key2: 'orange,grape,',
+    });
+  });
+
+  it('should handle an array with a single element', () => {
+    const query = { key1: ['apple'] };
+    const result = stringifyQuery(query);
+    expect(result).toEqual({ key1: 'apple,' });
+  });
+
+  it('should handle arrays with multiple elements and other non-array values', () => {
+    const query = { key1: ['apple', 'banana'], key2: 'value' };
+    const result = stringifyQuery(query);
+    expect(result).toEqual({
+      key1: 'apple,banana,',
+      key2: 'value',
+    });
+  });
+
+  it('should handle empty arrays correctly', () => {
+    const query = { key1: [] };
+    const result = stringifyQuery(query);
+    expect(result).toEqual({ key1: ',' });
+  });
+
+  it('should handle array elements with empty strings', () => {
+    const query = { key1: ['', 'banana'] };
+    const result = stringifyQuery(query);
+    expect(result).toEqual({ key1: ',banana,' });
   });
 });
