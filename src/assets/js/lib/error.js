@@ -1,4 +1,6 @@
 export const converErrorArrToObj = (errArr) => {
+  if (!Array.isArray(errArr)) return {};
+
   const errorObj = {};
 
   errArr.forEach((err) => {
