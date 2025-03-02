@@ -13,8 +13,8 @@ export const getQueryWithoutDefaults = (query, defQuery) => {
 };
 
 const parseQueryArr = (v) => {
-  if (typeof v !== 'string' || v.substr(v.length - 1) !== ARRAY_SEPAR) return v;
-  return v.substr(0, v.length - 1).split(ARRAY_SEPAR);
+  if (typeof v !== 'string' || v.slice(v.length - 1) !== ARRAY_SEPAR) return v;
+  return v.slice(0, v.length - 1).split(ARRAY_SEPAR);
 };
 
 const stringifyQueryArr = (v) => (Array.isArray(v) ? `${v.join(ARRAY_SEPAR)}${ARRAY_SEPAR}` : v);
