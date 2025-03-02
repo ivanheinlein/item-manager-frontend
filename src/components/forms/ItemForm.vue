@@ -102,7 +102,7 @@
 import { mapState, mapActions } from 'vuex';
 import { merge, isEqual } from 'lodash';
 import ImInputImg from '@/components/UI/InputImg.vue';
-import { getEmptyItem, getEmptyItemErrors } from '@/assets/js/lib/index';
+import { getEmptyItem, getEmptyItemErrors } from '@/assets/js/lib/dto';
 import ICONS from '@/assets/js/config/icons/index';
 import RULES from '@/assets/js/lib/rules';
 

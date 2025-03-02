@@ -40,7 +40,7 @@
 <script>
 import ICONS from '@/assets/js/config/icons/index';
 import ImImgStub from '@/components/UI/ImgStub.vue';
-import { getImgFromFile } from '@/assets/js/lib/index';
+import { getImgFromFile } from '@/assets/js/lib/file';
 
 export default {
   name: 'ImInputImg',

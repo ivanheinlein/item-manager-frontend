@@ -13,12 +13,12 @@
 <script>
 import { mapActions } from 'vuex';
 import ImCategoryForm from '@/components/forms/CategoryForm.vue';
+import PAGES from '@/assets/js/config/pages/index';
 import {
-  converErrorArrToObj,
   getEmptyCategory,
   getEmptyCategoryErrors,
-} from '@/assets/js/lib/index';
-import PAGES from '@/assets/js/config/pages/index';
+} from '@/assets/js/lib/dto';
+import { converErrorArrToObj } from '@/assets/js/lib/error';
 
 export default {
   name: 'ImCategoryUpdate',

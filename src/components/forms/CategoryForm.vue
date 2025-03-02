@@ -103,7 +103,7 @@ import RULES from '@/assets/js/lib/rules';
 import {
   getEmptyCategory,
   getEmptyCategoryErrors,
-} from '@/assets/js/lib/index';
+} from '@/assets/js/lib/dto';
 import ThrottledEvent from '@/assets/js/lib/ThrottledEvent';
 
 export default {

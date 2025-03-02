@@ -152,11 +152,8 @@ import ImInputImg from '@/components/UI/InputImg.vue';
 import RULES, { checkRule } from '@/assets/js/lib/rules';
 import ICONS from '@/assets/js/config/icons/index';
 import { formatDate } from '@/assets/js/lib/date';
-import {
-  converErrorArrToObj,
-  getEmptyUser,
-  getEmptyUserErrors,
-} from '@/assets/js/lib/index';
+import { getEmptyUser, getEmptyUserErrors } from '@/assets/js/lib/dto';
+import { converErrorArrToObj } from '@/assets/js/lib/error';
 
 export default {
   name: 'ImUserForm',

@@ -1,5 +1,5 @@
 import { throttle } from 'lodash';
-import { capitalize } from './index';
+import { capitalize } from './string';
 
 class ThrottledEvent {
   constructor(event = '', opt = {}) {
