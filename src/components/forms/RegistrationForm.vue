@@ -61,7 +61,7 @@ import { mapActions } from 'vuex';
 import ICONS from '@/assets/js/config/icons/index';
 import RULES from '@/assets/js/lib/rules';
 import PAGES from '@/assets/js/config/pages/index';
-import { converErrorArrToObj } from '@/assets/js/lib/index';
+import { converErrorArrToObj } from '@/assets/js/lib/error';
 
 export default {
   name: 'ImRegistrationForm',

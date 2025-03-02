@@ -14,7 +14,7 @@
 import ImItemForm from '@/components/forms/ItemForm.vue';
 import { mapActions } from 'vuex';
 import PAGES from '@/assets/js/config/pages/index';
-import { converErrorArrToObj } from '@/assets/js/lib/index';
+import { converErrorArrToObj } from '@/assets/js/lib/error';
 
 export default {
   name: 'ImItemUpdate',
