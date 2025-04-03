@@ -114,6 +114,7 @@ describe('Login', () => {
     Dashboard.mockBackgroundRequests();
 
     Login.ELEMENTS.submitButton().click();
+    cy.wait(1000);
   });
 
   it('should validate user input and show error message on blur', () => {
@@ -139,5 +140,6 @@ describe('Login', () => {
     Login.ELEMENTS.passwordInput().blur();
     cy.wait(1000);
     cy.get('form').should('contain.text', 'Field is required');
+    cy.wait(1000);
   });
 });
