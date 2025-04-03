@@ -117,10 +117,14 @@ describe('Login', () => {
   it('should validate user input and show error message on blur', () => {
     Login.visit();
 
-    Login.ELEMENTS.emailInput().focus().blur();
+    Login.ELEMENTS.emailInput().focus();
+    cy.wait(1000);
+    Login.ELEMENTS.emailInput().blur();
+    cy.wait(1000);
     cy.get('form').should('contain.text', 'Field is required');
 
     Login.ELEMENTS.emailInput().type('e').blur();
+    cy.wait(1000);
     cy.get('form')
       .should('not.contain.text', 'Field is required')
       .should('contain.text', 'Email should be in the format "test@test.com"');
@@ -129,7 +133,9 @@ describe('Login', () => {
     cy.get('form').should('not.contain.text', 'Email should be in the format "test@test.com"');
 
     Login.ELEMENTS.passwordInput().focus();
+    cy.wait(1000);
     Login.ELEMENTS.passwordInput().blur();
+    cy.wait(1000);
     cy.get('form').should('contain.text', 'Field is required');
   });
 });
