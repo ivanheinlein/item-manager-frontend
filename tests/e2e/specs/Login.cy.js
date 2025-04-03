@@ -105,7 +105,9 @@ describe('Login', () => {
   it('should authorize user successfuly', () => {
     Login.visit();
     Login.ELEMENTS.emailInput().type('email@email.com');
+    cy.wait(1000);
     Login.ELEMENTS.passwordInput().type('111111');
+    cy.wait(1000);
 
     Login.mockLoginRequest();
 
