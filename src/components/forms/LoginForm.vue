@@ -6,7 +6,8 @@
       outlined
       label="Email"
       hide-details="auto"
-      :rules="RULES.required"
+      data-cy="login-form-email-input"
+      :rules="RULES.email"
       :prepend-inner-icon="ICONS.label"
     />
 
@@ -17,6 +18,7 @@
       type="password"
       label="Password"
       hide-details="auto"
+      data-cy="login-form-password-input"
       :rules="RULES.required"
       :prepend-inner-icon="ICONS.key"
     />
@@ -25,6 +27,7 @@
       color="success"
       large
       width="100%"
+      data-cy="login-form-submit-btn"
       :loading="isLoading"
       :disabled="isLoading"
       @click="submitHandler"
