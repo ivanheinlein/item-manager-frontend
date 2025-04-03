@@ -1,3 +1,4 @@
+/* eslint-disable */
 class Dashboard {
   static mockCategoryRequest() {
     cy.intercept(
