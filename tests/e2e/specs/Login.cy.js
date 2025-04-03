@@ -110,7 +110,7 @@ describe('Login', () => {
     cy.wait(1000);
 
     Login.mockLoginRequest();
-
+    cy.wait(1000);
     Dashboard.mockBackgroundRequests();
 
     Login.ELEMENTS.submitButton().click();
