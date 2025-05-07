@@ -18,10 +18,27 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install selenium-side-runner and chromedriver
-        run: |
-          npm install -g selenium-side-runner chromedriver
+      - name: Install dependencies
+        run: npm install
 
-      - name: Run Selenium IDE tests
+      - name: Install Google Chrome and ChromeDriver
+        run: |
+          CHROME_VERSION=$(google-chrome --version | grep -oP "\d+" | head -1)
+          echo "Detected Chrome major version: $CHROME_VERSION"
+          if [[ $CHROME_VERSION -ge 136 ]]; then
+            DRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+            echo "Matching ChromeDriver version: $DRIVER_VERSION"
+            wget https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip
+            sudo mv chromedriver /usr/local/bin/
+            chromedriver --version
+          else
+            echo "No matching ChromeDriver found for version $CHROME_VERSION. Please update Chrome to version 136 or higher."
+          fi
+
+      - name: Install selenium-side-runner
+        run: npm install -g selenium-side-runner
+
+      - name: Run Selenium IDE tests (headless)
         run: |
           selenium-side-runner -c '{"browserName":"chrome","goog:chromeOptions":{"args":["--headless","--no-sandbox","--disable-dev-shm-usage"]}}' selenium/ItemManager.side
