@@ -24,4 +24,4 @@ jobs:
 
       - name: Run Selenium IDE tests
         run: |
-          selenium-side-runner -c "browserName=chrome,goog:chromeOptions.args=[--headless,--no-sandbox,--disable-dev-shm-usage,--user-data-dir=/tmp/temp_profile]" selenium/ItemManager.side
+          selenium-side-runner -c '{"browserName":"chrome","goog:chromeOptions":{"args":["--headless","--no-sandbox","--disable-dev-shm-usage","--user-data-dir=/tmp/temp_profile"]}}' selenium/ItemManager.side
