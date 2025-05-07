@@ -1,0 +1,27 @@
+name: Run E2E Tests
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install selenium-side-runner and chromedriver
+        run: |
+          npm install -g selenium-side-runner chromedriver
+
+      - name: Run Selenium IDE tests
+        run: |
+          selenium-side-runner -c "browserName=chrome" selenium/ItemManager.side

@@ -1,0 +1,78 @@
+{
+  "id": "7279611a-7ee2-4f7a-afff-c7455650f037",
+  "version": "2.0",
+  "name": "Item Manager",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "59a2ac23-1ac2-4c07-abdd-e2f1bbbbc44b",
+    "name": "Login",
+    "commands": [{
+      "id": "4f063cd5-eb29-4e4e-8cc0-b49e4322e050",
+      "comment": "",
+      "command": "open",
+      "target": "/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d130c04e-8fc3-4907-a7c3-567e59d2957d",
+      "comment": "",
+      "command": "click",
+      "target": "css=[data-cy=\"login-form-email-input\"]",
+      "targets": [
+        ["id=input-12", "id"],
+        ["css=#input-12", "css:finder"],
+        ["xpath=//input[@id='input-12']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/div/form/div/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de6e46dd-f069-4e0f-951f-0697353dfd95",
+      "comment": "",
+      "command": "type",
+      "target": "css=[data-cy=\"login-form-email-input\"]",
+      "targets": [
+        ["id=input-12", "id"],
+        ["css=#input-12", "css:finder"],
+        ["xpath=//input[@id='input-12']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/div/form/div/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "email1@email.com"
+    }, {
+      "id": "13ae5094-1b41-4fc0-8155-ce1baa94a13d",
+      "comment": "",
+      "command": "type",
+      "target": "css=[data-cy=\"login-form-password-input\"]",
+      "targets": [
+        ["id=input-14", "id"],
+        ["css=#input-14", "css:finder"],
+        ["xpath=//input[@id='input-14']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/div/form/div[2]/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "111111"
+    }, {
+      "id": "963ebea0-8e74-4551-b2a7-8498813ba1e0",
+      "comment": "",
+      "command": "click",
+      "target": "css=[data-cy=\"login-form-submit-btn\"]",
+      "targets": [
+        ["css=.v-btn--is-elevated > .v-btn__content", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/div/form/button/span", "xpath:idRelative"],
+        ["xpath=//button/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "12fdcca4-49c4-404a-b6af-b2765f5f47bb",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["59a2ac23-1ac2-4c07-abdd-e2f1bbbbc44b"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
