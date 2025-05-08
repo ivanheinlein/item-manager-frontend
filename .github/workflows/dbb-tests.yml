@@ -1,4 +1,4 @@
-name: Run E2E Tests
+name: Run DBB Tests
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  unit-tests:
+  dbb-tests:
     runs-on: ubuntu-latest
 
     steps:
