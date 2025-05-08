@@ -1,4 +1,4 @@
-name: Run BDD Tests
+name: Run DBB Tests
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  bdd-tests:
+  dbb-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,12 +21,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Start dev server
-        run: |
-          npm run serve &
-          npx wait-on http://localhost:8080
-        env:
-          CI: true
-
-      - name: Run BDD tests
-        run: npm run test:bdt
+      - name: Run tests
+        run: npm run test:e2e:headless
