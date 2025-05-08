@@ -10,15 +10,11 @@
 // const webpack = require('@cypress/webpack-preprocessor')
 
 module.exports = (on, config) => {
-  // on('file:preprocessor', webpack({
-  //  webpackOptions: require('@vue/cli-service/webpack.config'),
-  //  watchOptions: {}
-  // }))
-
   return {
     ...config,
     fixturesFolder: 'tests/e2e/fixtures',
-    integrationFolder: 'tests/e2e/specs',
+    specPattern: 'tests/e2e/features/**/*.feature', // Шлях до feature-файлів
+    stepDefinitions: 'tests/e2e/features/**/*.cy.js',  // Шлях до файлів з кроками
     screenshotsFolder: 'tests/e2e/screenshots',
     videosFolder: 'tests/e2e/videos',
     supportFile: 'tests/e2e/support/index.js',

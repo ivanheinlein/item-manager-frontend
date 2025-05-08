@@ -7,7 +7,10 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:e2e:headless": "vue-cli-service test:e2e --headless",
+    "test:bdt": "cypress run",
+    "test:bdt:open": "cypress open"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -22,8 +25,10 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "@vue/cli-plugin-babel": "^4.5.19",
-    "@vue/cli-plugin-e2e-cypress": "^4.5.19",
+    "@vue/cli-plugin-e2e-cypress": "^5.0.8",
     "@vue/cli-plugin-eslint": "^4.5.19",
     "@vue/cli-plugin-unit-jest": "^4.5.19",
     "@vue/cli-plugin-vuex": "^4.5.19",
@@ -31,6 +36,7 @@
     "@vue/eslint-config-airbnb": "^5.3.0",
     "@vue/test-utils": "1.0.0-beta.31",
     "babel-eslint": "^10.1.0",
+    "cypress": "^14.2.1",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-vue": "^6.2.2",
