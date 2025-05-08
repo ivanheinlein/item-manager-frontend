@@ -21,11 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Start development server
-        run: npm run serve &
-      
-      - name: Wait for server to start
-        run: npx wait-on http://localhost:8080
+      - name: Start dev server
+        run: |
+          npm run serve &
+          npx wait-on http://localhost:8080
+        env:
+          CI: true
 
       - name: Run BDD tests
         run: npm run test:bdt
